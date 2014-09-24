@@ -1,0 +1,13 @@
+# This file contains the basic answers for questions during phpmyadmin
+# intallation.
+
+phpmyadmin phpmyadmin/dbconfig-install boolean true
+
+phpmyadmin phpmyadmin/mysql/admin-user string root
+phpmyadmin phpmyadmin/mysql/admin-pass password {{ mysql.root_password }}
+
+phpmyadmin phpmyadmin/db/dbname string {{ phpmyadmin.dbname }}
+phpmyadmin phpmyadmin/db/app-user string {{ phpmyadmin.dbuser }}
+phpmyadmin phpmyadmin/mysql/app-pass password {{ phpmyadmin.dbpass }}
+
+phpmyadmin phpmyadmin/reconfigure-webserver multiselect apache2

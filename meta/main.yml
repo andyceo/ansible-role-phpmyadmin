@@ -1,0 +1,23 @@
+---
+allow_duplicates: no
+
+dependencies:
+  - { role: andyceo.apache }
+  - { role: andyceo.php }
+  - { role: andyceo.mysql }
+
+galaxy_info:
+  author: andyceo
+  description: Install phpMyAdmin - web tool for managing MySQL databases.
+  license: "license (BSD, MIT)"
+  min_ansible_version: 1.5
+  platforms:
+  - name: Ubuntu
+    versions:
+    - trusty
+  categories:
+    - web
+    - database
+    - database:sql
+    - system
+    - development

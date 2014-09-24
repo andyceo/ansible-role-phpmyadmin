@@ -1,0 +1,28 @@
+---
+
+- name: Install debconf-utils package first for automatic phpmyadmin questions management on install.
+  apt: pkg=debconf-utils
+  sudo: yes
+
+- name: Render file with answers for debconf.
+  template:
+    src=debconf.j2
+    dest=/tmp/debconf.txt
+    owner=root
+    group=root
+    mode=0600
+  sudo: yes
+
+- name: Pre-configure answers for debconf questions.
+  command: debconf-set-selections /tmp/debconf.txt
+  sudo: yes
+
+- name: Delete file with debconf answers
+  file:
+    path=/tmp/debconf.txt
+    state=absent
+  sudo: yes
+
+- name: Install phpMyAdmin - web tool for admin MySQL databases.
+  apt: pkg=phpmyadmin
+  sudo: yes

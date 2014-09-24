@@ -1,0 +1,6 @@
+---
+
+phpmyadmin:
+  dbname: phpmyadmin
+  dbuser: phpmyadmin
+  dbpass: phpmyadmin
