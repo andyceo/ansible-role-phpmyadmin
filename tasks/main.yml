@@ -17,6 +17,8 @@
   command: debconf-set-selections /tmp/debconf.txt
   sudo: yes
 
+# @todo: Replace with debconf Ansible module when upgrade minimum Ansible version to 1.6 or higher.
+# See http://docs.ansible.com/debconf_module.html
 - name: Delete file with debconf answers
   file:
     path=/tmp/debconf.txt
