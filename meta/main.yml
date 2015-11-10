@@ -2,7 +2,6 @@
 allow_duplicates: no
 
 dependencies:
-  - { role: andyceo.apache }
   - { role: andyceo.php }
   - { role: andyceo.mysql }
 
