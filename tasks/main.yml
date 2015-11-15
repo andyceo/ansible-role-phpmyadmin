@@ -26,5 +26,8 @@
   sudo: yes
 
 - name: Install phpMyAdmin - web tool for admin MySQL databases.
-  apt: pkg=phpmyadmin
+  apt:
+    pkg=phpmyadmin
+    install_recommends=no
+    # We need install_recommends=no to not install apache2 by defaults.
   sudo: yes

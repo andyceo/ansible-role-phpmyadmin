@@ -1,7 +1,14 @@
 # This file contains the basic answers for questions during phpmyadmin
 # intallation.
 
-phpmyadmin phpmyadmin/dbconfig-install boolean true
+# Without phpmyadmin phpmyadmin/internal/skip-preseed boolean true it will
+# start configuring the database with dbconfig-common
+# (no matter how phpmyadmin phpmyadmin/dbconfig-install is set).
+# @see http://stackoverflow.com/questions/30741573/debconf-selections-for-phpmyadmin-unattended-installation-no-webserver-no-dbconf
+
+phpmyadmin phpmyadmin/internal/skip-preseed boolean true
+phpmyadmin phpmyadmin/dbconfig-install boolean false
+phpmyadmin phpmyadmin/reconfigure-webserver multiselect
 
 phpmyadmin phpmyadmin/mysql/admin-user string root
 phpmyadmin phpmyadmin/mysql/admin-pass password {{ mysql.root_password }}
@@ -9,5 +16,3 @@ phpmyadmin phpmyadmin/mysql/admin-pass password {{ mysql.root_password }}
 phpmyadmin phpmyadmin/db/dbname string {{ phpmyadmin.dbname }}
 phpmyadmin phpmyadmin/db/app-user string {{ phpmyadmin.dbuser }}
 phpmyadmin phpmyadmin/mysql/app-pass password {{ phpmyadmin.dbpass }}
-
-phpmyadmin phpmyadmin/reconfigure-webserver multiselect {{ phpmyadmin.webserver }}
